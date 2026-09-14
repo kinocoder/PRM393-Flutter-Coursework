@@ -4,6 +4,8 @@ int add(int a, int b,) => a + b;
 
 int add2({required int a , int b =0, int? c}) => a+b+c!;
 
+
+
 /*
 List<int> getEven(List<int>? x){
   List<int> re = [];
@@ -72,9 +74,17 @@ void main() {
   print("${add2(a:4,b:6,c:8)}");
 */
 
-  Product p = new Product(id: "ga01", name: "Gà quay");
-  // p.name = "Tôm hùm"; // nếu không để private thì có thể truy xuất từ bên ngoài
-  print(p.name);
+  // Product p = new Product(id: "ga01", name: "Gà quay");
+  // // p.name = "Tôm hùm"; // nếu không để private thì có thể truy xuất từ bên ngoài
+  // print(p.name);
+
+
+  List<int> a = [2,4,6,8];
+  List<int> b = [...a,
+    if (a.length%2==0) 2 else 3,
+    for (var x in a) x+1];
+  print(b);
+
 
 }
 
