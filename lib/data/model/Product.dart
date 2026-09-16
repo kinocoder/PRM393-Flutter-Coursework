@@ -73,8 +73,8 @@ class Product{
       )
       ''';
   }
-
   //So sánh bằng giá trị
+
   @override
   bool operator == (Object other){
    if(identical(this, other)) return true;
