@@ -10,18 +10,7 @@ class BodyWidget extends StatelessWidget {
         /*child:Text("Hello every one!",
           style: TextStyle(fontSize:50,fontWeight:FontWeight.bold ,color: Colors.cyan),
         )*/
-        child: RichText(
-          text: TextSpan(
-            text: "Xin chào",
-            style: TextStyle(color: Colors.greenAccent),
-            children:<TextSpan> [
-              TextSpan(
-                text: "Tất cả mọi người",
-                style: TextStyle(color: Colors.amberAccent),
-              )
-            ]
-          ),
-        ),
+       child: Image.asset('asserts/images/1789480835463_8789316428734258228_g2905689298196080542_c6d63fbdcc49397cda46f6daa14250e6.jpg'),
     )
     );
   }
