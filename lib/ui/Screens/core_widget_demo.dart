@@ -23,7 +23,7 @@ class CoreWidgetDemo extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 24, bottom: 24),
             child: Image.network(
-              "https://media-cdn-v2.laodong.vn/storage/newsportal/2023/8/26/1233821/Giai-Nhi-1--Nang-Tre.jpg?w=800&crop=auto&scale=both",
+              "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/10_diem_meme_cover_3af8f915a7.png",
             ),
           ),
           Card(margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
