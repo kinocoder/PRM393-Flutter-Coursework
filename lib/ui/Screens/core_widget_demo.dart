@@ -6,7 +6,7 @@ class CoreWidgetDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Exercise 1 - Core Widgets')),
+      appBar: AppBar(actions: [IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.home))], title: const Text('Exercise 1 - Core Widgets')),
       body: ListView(
         children: [
           Padding(
