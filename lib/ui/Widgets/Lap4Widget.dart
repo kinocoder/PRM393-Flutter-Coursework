@@ -57,7 +57,7 @@ class LapExercise extends StatelessWidget {
                     iconSize: 35,
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const ExeWidget2() as Widget));
+                          MaterialPageRoute(builder: (context) =>  ExeWidget2() as Widget));
                     },
                   ),
                 ),
