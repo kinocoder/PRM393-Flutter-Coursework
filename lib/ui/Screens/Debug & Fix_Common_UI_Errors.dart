@@ -35,7 +35,10 @@ class _CommonUIState extends State<CommonUI> {
           Text('Số lần bấm: $count', style: const TextStyle(fontSize: 28)),
           ElevatedButton(
             onPressed: () {
-              count++; // Cố tình gây lỗi: thiếu setState()
+              setState(() {
+                count++; // Cố tình gây lỗi: thiếu setState()
+              });
+
               debugPrint('count = $count');
             },
             child: const Text('Tăng'),
