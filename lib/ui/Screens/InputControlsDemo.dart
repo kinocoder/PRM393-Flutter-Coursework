@@ -131,7 +131,7 @@ class _ExeWidget2State extends State<ExeWidget2> {
               ) 
           ),
           const SizedBox(height: 25),
-          ElevatedButton(onPressed: openDatePicker, child: Text("Open Date Picker"),),
+          ElevatedButton( onPressed: openDatePicker, child: Text("Open Date Picker",style: TextStyle(fontSize: 20),),),
         ],
       ),
     );
