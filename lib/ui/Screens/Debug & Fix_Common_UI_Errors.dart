@@ -14,14 +14,17 @@ class CommonUI extends StatelessWidget {
             "Correct ListView inside Column using Expanded",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Expanded(
-            child: ListView(
-              children: [
-                ListTile(leading: Icon(Icons.movie), title: Text('Movie A')),
-                ListTile(leading: Icon(Icons.movie), title: Text('Movie B')),
-                ListTile(leading: Icon(Icons.movie), title: Text('Movie C')),
-                ListTile(leading: Icon(Icons.movie), title: Text('Movie D')),
-              ],
+          Container(
+            height: 1000,
+            child: Expanded(
+              child: ListView(
+                children: [
+                  ListTile(leading: Icon(Icons.movie), title: Text('Movie A')),
+                  ListTile(leading: Icon(Icons.movie), title: Text('Movie B')),
+                  ListTile(leading: Icon(Icons.movie), title: Text('Movie C')),
+                  ListTile(leading: Icon(Icons.movie), title: Text('Movie D')),
+                ],
+              ),
             ),
           ),
         ],
