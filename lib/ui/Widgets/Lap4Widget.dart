@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hoc_tren_truong/ui/Screens/core_widget_demo.dart';
 
 import '../Screens/App Structure.dart';
+import '../Screens/Debug & Fix_Common_UI_Errors.dart';
 import '../Screens/InputControlsDemo.dart';
 import '../Screens/LayoutBasic.dart';
 
@@ -133,7 +134,17 @@ class LapExercise extends StatelessWidget {
                     "Exercise 5 - Common UI Fixes",
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(size: 35, Icons.chevron_right)),
+                Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    icon: const Icon(Icons.chevron_right),
+                    iconSize: 35,
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const CommonUI() as Widget));
+                    },
+                  ),
+                )
               ],
             ),
           ),
