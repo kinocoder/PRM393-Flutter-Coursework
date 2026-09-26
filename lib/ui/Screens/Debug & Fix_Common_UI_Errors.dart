@@ -51,19 +51,15 @@ class _CommonUIState extends State<CommonUI> {
             flex: 1,
             child: ElevatedButton(
               onPressed: () async {
-                // CỐ Ý LẤY SAI: context của MaterialApp,
-                // nằm phía trên các widget mà MaterialApp tạo ra.
-                final wrongContext =
-                    context.findAncestorStateOfType<State<MaterialApp>>()!.context;
 
                 await showDatePicker(
-                  context: wrongContext, // CỐ Ý GÂY LỖI
+                  context: context,
                   initialDate: DateTime.now(),
                   firstDate: DateTime(2000),
                   lastDate: DateTime(2100),
                 );
               },
-              child: const Text('Mở DatePicker (cố tình lỗi)'),
+              child: const Text('Mở DatePicker'),
             ),
           ),
         ],
