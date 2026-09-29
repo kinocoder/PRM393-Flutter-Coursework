@@ -6,7 +6,12 @@ import 'package:hoc_tren_truong/ui/Widgets/ProductCardWidget.dart';
 import '../../data/model/Product.dart';
 
 class ProductsWidget extends StatefulWidget {
-  const ProductsWidget({super.key});
+  final ValueChanged<Product> onProductSelected;
+
+  const ProductsWidget({
+    super.key,
+    required this.onProductSelected,
+  });
 
   @override
   State<ProductsWidget> createState() => _ProductsWidgetState();
@@ -84,7 +89,7 @@ class _ProductsWidgetState extends State<ProductsWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: filteredProducts.length,
             itemBuilder: (context,index){
-              return ProductCard(product: filteredProducts[index]);
+              return ProductCard(product: filteredProducts[index], onTap: () => widget.onProductSelected(filteredProducts[index],));
             }
         ),
       ),]
