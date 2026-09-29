@@ -6,6 +6,10 @@ class Product{
   final double price;
   final String? description;
   final String? image;
+  final int discountPercent; // 0–100
+  double get salePrice => price * (1 - discountPercent / 100);
+  final double rating;   // Điểm trung bình, ví dụ 4.8 trên 5
+  final int reviewCount; // Số lượt đánh giá, ví dụ 120
 
   Product({
     required this.id,
@@ -13,7 +17,10 @@ class Product{
     this.quantity=0,
     this.price = 100.00,
     this.description = "",
-    this.image = ""
+    this.image = "",
+    this.discountPercent = 0,
+    this.rating = 0,
+    this.reviewCount = 0,
   });
 
   //CopyWith = get của Java
@@ -31,7 +38,10 @@ class Product{
       quantity: quantity ?? this.quantity,
       price: price ?? this.price,
       description: description ?? this.description,
-      image: image ?? this.image
+      image: image ?? this.image,
+      discountPercent: discountPercent ?? this.discountPercent,
+      rating: rating ?? this.rating,
+      reviewCount: reviewCount ?? this.reviewCount
     );
   }
 
@@ -43,7 +53,10 @@ class Product{
       quantity: json['quantity'] as int? ?? 0,
       price: json['price'] as double? ?? 100.00,
       description: json['description'] as String? ?? '',
-      image: json['image'] as String? ?? 'No Image'
+      image: json['image'] as String? ?? 'No Image',
+      discountPercent: json['discountPercent'] as int? ?? 0,
+      reviewCount: json['reviewCount'] as int? ?? 0,
+      rating: json['rating'] as double? ?? 0.00
     );
   }
 
@@ -55,6 +68,9 @@ class Product{
       'quantity' : quantity,
       'description' : description,
       'image' : image,
+      'discountPercent':discountPercent,
+      'reviewCount':reviewCount,
+      'rating':rating
   };
 }
 
@@ -70,6 +86,9 @@ class Product{
       price: $price
       description: $description
       image: $image
+      discountPercent:$discountPercent
+      reviewCount:$reviewCount
+      rating:$rating
       )
       ''';
   }
@@ -82,10 +101,13 @@ class Product{
     other.id == id &&
     other.name == name &&
     other.price == price&&
-    other.quantity == quantity;
+    other.quantity == quantity&&
+    other.discountPercent == discountPercent&&
+    other.rating == rating&&
+    other.reviewCount == reviewCount;
   }
 
   //Hash code
   @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ price.hashCode ^ quantity.hashCode;
+  int get hashCode => id.hashCode ^ name.hashCode ^ price.hashCode ^ quantity.hashCode ^ discountPercent.hashCode ^ reviewCount.hashCode ^ rating.hashCode;
 }
