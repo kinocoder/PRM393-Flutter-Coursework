@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../providers/shop_providers.dart';
+import '../Widgets/cart_widget.dart';
 
 import '../../data/model/Product.dart';
 import '../Widgets/ListProductWidget.dart';
 import '../Widgets/ProductDetail.dart';
 
-class ProductHomeWidget extends StatefulWidget {
+class ProductHomeWidget extends ConsumerStatefulWidget {
   const ProductHomeWidget({super.key});
 
   @override
-  State<ProductHomeWidget> createState() => _ProductHomeWidgetState();
+  ConsumerState<ProductHomeWidget> createState() => _ProductHomeWidgetState();
 }
 
-class _ProductHomeWidgetState extends State<ProductHomeWidget> {
+class _ProductHomeWidgetState extends ConsumerState<ProductHomeWidget> {
   Product? selectedProduct;
   int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-
     final titles = ['Products', 'Product Detail', 'Cart'];
 
     return Scaffold(
@@ -41,15 +44,27 @@ class _ProductHomeWidgetState extends State<ProductHomeWidget> {
               ? const Center(child: Text('Hãy chọn một sản phẩm ở Home'))
               : ProductDetail(
                   product: selectedProduct!,
-                  onAddToCart: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Đã chọn ${selectedProduct!.name}'),
-                      ),
-                    );
+                  onAddToCart: () async {
+                    final product = selectedProduct!;
+                    try {
+                      await ref.read(cartActionsProvider).addProduct(product);
+                      if (!context.mounted) return;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Đã thêm ${product.name} vào giỏ'),
+                        ),
+                      );
+                    } catch (error) {
+                      if (!context.mounted) return;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Không thể thêm sản phẩm: $error'),
+                        ),
+                      );
+                    }
                   },
                 ),
-        _ => const Center(child: Text('Giỏ hàng')),
+        _ => const CartWidget(),
       },
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,

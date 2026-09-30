@@ -54,7 +54,13 @@ class Homepage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(children: [BodyWidget(), LapExercise()]),
+        body: TabBarView(
+          children: [
+            BodyWidget(),
+            LapExercise(),
+            const Center(child: Text('Chọn tab để mở sản phẩm')),
+          ],
+        ),
       ),
     );
   }
