@@ -80,7 +80,7 @@ class Productrepository {
   }
 
   //Lấy sản phẩm theo ID
-  Future<Product?> getProduct(String id) async {
+  Future<Product?> getProductByID(String id) async {
     for (final product in products) {
       if (product.id == id) {
         return product;
@@ -89,6 +89,13 @@ class Productrepository {
     return null;
   }
 
-
+  //lấy sản phẩm theo tên
+  Future <List<Product>> getProductByName(String name)async {
+    final keyword = name.trim().toLowerCase();
+    final results = products.where((product) {
+      return product.name.toLowerCase().contains(keyword);
+    }).toList();
+    return results;
+  }
 
 }
