@@ -1,5 +1,14 @@
 import '../../domain/models/product.dart';
 
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'ProductRepository.g.dart';
+
+@riverpod
+Productrepository productrepository(Ref ref){
+  return Productrepository();
+}
+
 class Productrepository {
   final List<Product> products = [
     Product(
