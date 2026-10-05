@@ -9,7 +9,6 @@ class ProductViewModel extends _$ProductViewModel {
   @override
   Future<List<Product>> build() async {
     final repository = ref.watch(productrepositoryProvider);
-
     return repository.getProducts();
   }
 }
