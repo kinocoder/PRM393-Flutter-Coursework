@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:hoc_tren_truong/domain/models/product.dart';
-
+import 'package:hoc_tren_truong/ui/product/widgets/products_view.dart';
 
 /// Composition/navigation boundary. Domain actions stay inside feature ViewModels.
 class HomeScreen extends StatefulWidget {
@@ -25,31 +22,33 @@ class _ShopPageState extends State<HomeScreen> {
         foregroundColor: Colors.white,
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Text(titles[selectedIndex],style: TextStyle(fontSize: 34),),
-      ),
+      body: switch (selectedIndex) {
+        0 => const ProductsView(),
+        1 => const Center(child: Text('Chi tiết sản phẩm')),
+        _ => const Center(child: Text('Giỏ hàng')),
+      },
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
-        onTap: (index){
+        onTap: (index) {
           setState(() {
             selectedIndex = index;
           });
         },
-        items: const[
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,size: 40,),
-            label: 'Home'
+            icon: Icon(Icons.home, size: 40),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline,size: 40,),
-            label: 'Product Detail'
+            icon: Icon(Icons.info_outline, size: 40),
+            label: 'Product Detail',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart,size: 40,),
-            label: 'Cart'
-          )
+            icon: Icon(Icons.shopping_cart, size: 40),
+            label: 'Cart',
+          ),
         ],
       ),
     );
