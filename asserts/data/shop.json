@@ -1,0 +1,128 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 15",
+      "quantity": 0,
+      "description": "Điện thoại iPhone 15 với thiết kế mới và camera cải tiến.",
+      "image": "https://shopdidong.vn/wp-content/uploads/2026/06/1-27.webp",
+      "discountPercent": 9,
+      "reviewCount": 120,
+      "rating": 4.8,
+      "carId": "none",
+      "price": 1099.0
+    },
+    {
+      "id": "2",
+      "name": "Samsung S24",
+      "quantity": 0,
+      "description": "Điện thoại Samsung S24 với màn hình sắc nét.",
+      "image": "https://cdn2.fptshop.com.vn/unsafe/512x0/filters:format(webp):quality(75)/2024_1_29_638421471246167545_samsung-galaxy-s24-xam-1.png",
+      "discountPercent": 10,
+      "reviewCount": 85,
+      "rating": 4.6,
+      "carId": "none",
+      "price": 999.0
+    },
+    {
+      "id": "3",
+      "name": "MacBook Air",
+      "quantity": 0,
+      "description": "Laptop MacBook Air mỏng nhẹ, phù hợp học tập và làm việc.",
+      "image": "https://apple.ngocnguyen.vn/cdn/images/202304/goods_img/macbook-air-13-inch-2020-i5-11ghz-ram-8gb-ssd-512gb-P7389-1680833827007.jpg",
+      "discountPercent": 8,
+      "reviewCount": 64,
+      "rating": 4.9,
+      "carId": "none",
+      "price": 1299.0
+    }
+  ],
+  "classroom": [
+    {
+      "id": "SP002",
+      "name": "Trí Linh",
+      "quantity": 2,
+      "description": "Mô tả sản phẩm thứ hai",
+      "image": "asserts/images/ten_anh.jpg",
+      "discountPercent": 0,
+      "reviewCount": 0,
+      "rating": 0.0,
+      "carId": "none",
+      "price": 50.0
+    },
+    {
+      "id": "SP001",
+      "name": "Yến",
+      "quantity": 1,
+      "description": "Hơi mát mát nên cần cảnh giác",
+      "image": "asserts/images/1789480835463_8789316428734258228_g2905689298196080542_c6d63fbdcc49397cda46f6daa14250e6.jpg",
+      "discountPercent": 0,
+      "reviewCount": 0,
+      "rating": 0.0,
+      "carId": "none",
+      "price": 100.0
+    },
+    {
+      "id": "SP003",
+      "name": "Đình thanh",
+      "quantity": 1,
+      "description": "Mô tả sản phẩm thứ hai",
+      "image": "asserts/images/ten_anh.jpg",
+      "discountPercent": 0,
+      "reviewCount": 0,
+      "rating": 0.0,
+      "carId": "none",
+      "price": 0.0
+    }
+  ],
+  "cart": [
+    {
+      "product": {
+        "id": "SP001",
+        "name": "Áo thun cotton",
+        "quantity": 50,
+        "description": "Áo thun cotton màu trắng",
+        "image": "",
+        "discountPercent": 10,
+        "reviewCount": 20,
+        "rating": 4.5,
+        "carId": "none",
+        "price": 200000.0
+      },
+      "quantity": 2,
+      "isSelected": true
+    },
+    {
+      "product": {
+        "id": "SP002",
+        "name": "Quần jean",
+        "quantity": 30,
+        "description": "Quần jean xanh dáng suông",
+        "image": "",
+        "discountPercent": 0,
+        "reviewCount": 15,
+        "rating": 4.7,
+        "carId": "none",
+        "price": 400000.0
+      },
+      "quantity": 1,
+      "isSelected": false
+    },
+    {
+      "product": {
+        "id": "SP003",
+        "name": "Giày thể thao",
+        "quantity": 20,
+        "description": "Giày thể thao nhẹ, màu đen",
+        "image": "",
+        "discountPercent": 20,
+        "reviewCount": 32,
+        "rating": 4.8,
+        "carId": "none",
+        "price": 500000.0
+      },
+      "quantity": 1,
+      "isSelected": true
+    }
+  ]
+}
