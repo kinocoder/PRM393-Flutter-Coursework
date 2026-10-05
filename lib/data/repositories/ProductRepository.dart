@@ -8,7 +8,7 @@ class Productrepository {
       quantity: 20,
       price: 18000000.0,
       description:
-          'Điện thoại màn hình 6.1 inch, bộ nhớ 128GB, '
+      'Điện thoại màn hình 6.1 inch, bộ nhớ 128GB, '
           'phù hợp chụp ảnh và sử dụng hằng ngày.',
       image: 'assets/images/iphone_15.jpg',
       discountPercent: 10,
@@ -22,7 +22,7 @@ class Productrepository {
       quantity: 15,
       price: 20000000.0,
       description:
-          'Điện thoại Android với màn hình sắc nét, '
+      'Điện thoại Android với màn hình sắc nét, '
           'camera đa dụng và thiết kế nhỏ gọn.',
       image: 'assets/images/galaxy_s24.jpg',
       discountPercent: 15,
@@ -36,7 +36,7 @@ class Productrepository {
       quantity: 8,
       price: 15000000.0,
       description:
-          'Laptop màn hình 15.6 inch, RAM 16GB, SSD 512GB, '
+      'Laptop màn hình 15.6 inch, RAM 16GB, SSD 512GB, '
           'phù hợp học tập và làm việc văn phòng.',
       image: 'assets/images/dell_inspiron_15.jpg',
       discountPercent: 5,
@@ -50,7 +50,7 @@ class Productrepository {
       quantity: 50,
       price: 350000.0,
       description:
-          'Chuột không dây với nút bấm êm, '
+      'Chuột không dây với nút bấm êm, '
           'phù hợp học tập và sử dụng văn phòng.',
       image: 'assets/images/logitech_m331.jpg',
       discountPercent: 0,
@@ -64,7 +64,7 @@ class Productrepository {
       quantity: 12,
       price: 1200000.0,
       description:
-          'Tai nghe Bluetooth chụp tai, '
+      'Tai nghe Bluetooth chụp tai, '
           'phù hợp nghe nhạc và học trực tuyến.',
       image: 'assets/images/sony_wh_ch520.jpg',
       discountPercent: 20,
@@ -78,6 +78,17 @@ class Productrepository {
   Future<List<Product>> getProducts() async {
     return List<Product>.unmodifiable(products);
   }
+
+  //Lấy sản phẩm theo ID
+  Future<Product?> getProduct(String id) async {
+    for (final product in products) {
+      if (product.id == id) {
+        return product;
+      }
+    }
+    return null;
+  }
+
 
 
 }
