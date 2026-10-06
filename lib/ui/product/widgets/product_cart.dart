@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hoc_tren_truong/domain/models/product.dart';
-import 'package:intl/intl.dart';
+import 'package:hoc_tren_truong/utils/currency_formatter.dart';
 
-final currencyFormat = NumberFormat.currency(
-  locale: 'vi_VN',
-  name: 'VND',
-  symbol: 'VND',
-  decimalDigits: 0,
-);
+
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -72,7 +67,7 @@ class ProductCard extends StatelessWidget {
 
                         if (product.discountPercent > 0)
                           Text(
-                            currencyFormat.format(product.price),
+                            formatVnd(product.price),
                             style: const TextStyle(
                               color: Colors.grey,
                               decoration: TextDecoration.lineThrough,
@@ -80,7 +75,7 @@ class ProductCard extends StatelessWidget {
                           ),
 
                         Text(
-                          currencyFormat.format(product.salePrice),
+                          formatVnd(product.salePrice),
                           style: const TextStyle(
                             fontSize: 18,
                             color: Colors.red,
