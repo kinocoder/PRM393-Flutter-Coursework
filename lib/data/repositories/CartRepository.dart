@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part "CartRepository.g.dart";
 
-@riverpod
+@Riverpod(keepAlive: true)
 Cartrepository cartRepository(Ref ref) {
   return Cartrepository();
 }

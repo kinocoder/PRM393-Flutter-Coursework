@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hoc_tren_truong/ui/product/widgets/product_detail.dart';
 import 'package:hoc_tren_truong/ui/product/widgets/products_view.dart';
 import '../../../domain/models/product.dart';
+import 'package:hoc_tren_truong/ui/product/widgets/cart_view.dart';
 
 /// Composition/navigation boundary. Domain actions stay inside feature ViewModels.
 class HomeScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _ShopPageState extends State<HomeScreen> {
         1 => selectedProduct == null ? Center(
           child: Text("Hãy chọn 1 sản phẩm ở danh sách",style: TextStyle(fontSize: 25),),
         ) : ProductDetail(product: selectedProduct!),
-        _ => const Center(child: Text('Giỏ hàng')),
+        _ => const CartView(),
       },
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
