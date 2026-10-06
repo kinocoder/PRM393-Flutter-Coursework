@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hoc_tren_truong/ui/product/view_models/product_view_model.dart';
+import 'package:hoc_tren_truong/ui/product/widgets/product_detail.dart';
 
-import 'product_cart.dart';
+import '../../../domain/models/product.dart';
+import 'product_card.dart';
 
 class ProductsView extends ConsumerWidget {
-  const ProductsView({super.key});
+  final ValueChanged<Product> onProductSelected;
+  const ProductsView({super.key, required this.onProductSelected});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +31,11 @@ class ProductsView extends ConsumerWidget {
           itemCount: products.length,
           itemBuilder: (context, index) {
             final product = products[index];
-            return ProductCard(key: ValueKey(product.id), product: product);
+            return ProductCard(
+              key: ValueKey(product.id),
+              product: product,
+              onTap: () => onProductSelected(product),
+            );
           },
         );
       },

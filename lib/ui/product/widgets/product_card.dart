@@ -34,7 +34,7 @@ class ProductCard extends StatelessWidget {
                     width: 90,
                     height: 110,
                     child: Image.network(
-                      product.image ?? '',
+                      imagePath ?? '',
                       fit: BoxFit.contain,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(
