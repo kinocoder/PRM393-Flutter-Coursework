@@ -68,4 +68,22 @@ class Cartrepository {
     //thay đổi số lượng bằng cách copy ra 1 Item mới với số lượng mới
     carts[index] = oldItem.copyWith(quantity: newQuantity);
   }
+
+  //Cập nhật chọn hay không chọn
+  Future<void> updateSelection(
+      String productId,
+      bool isSelected,
+      ) async {
+    final index = carts.indexWhere(
+          (item) => item.product.id == productId,
+    );
+
+    if (index == -1) {
+      throw StateError('Sản phẩm chưa có trong giỏ hàng');
+    }
+
+    carts[index] = carts[index].copyWith(
+      isSelected: isSelected,
+    );
+  }
 }
