@@ -1,10 +1,11 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:hoc_tren_truong/data/repositories/CartRepository.dart';
 import 'package:hoc_tren_truong/domain/models/cart_item.dart';
+import 'package:hoc_tren_truong/domain/models/product.dart';
 
 part 'cart_view_model.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class CartViewModel extends _$CartViewModel {
   @override
   Future<List<CartItem>> build() async {
@@ -59,6 +60,16 @@ class CartViewModel extends _$CartViewModel {
     }
 
     return total;
+  }
+
+  Future<void> addProduct(Product product) async {
+    final repo = ref.read(cartRepositoryProvider);
+
+    await repo.addCartItem(
+      CartItem(product: product),
+    );
+
+    state = AsyncData(await repo.getCarts());
   }
 
 }

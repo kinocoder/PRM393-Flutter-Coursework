@@ -21,7 +21,7 @@ final class CartRepositoryProvider
         argument: null,
         retry: null,
         name: r'cartRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -48,4 +48,4 @@ final class CartRepositoryProvider
   }
 }
 
-String _$cartRepositoryHash() => r'3d9fc865d990066154d8498eb6fa6e48aa3c79ba';
+String _$cartRepositoryHash() => r'6ba9214ee0084bcd2590cc6e5d1f720bfee7b45f';

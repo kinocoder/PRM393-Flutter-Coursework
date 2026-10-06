@@ -20,7 +20,7 @@ final class CartViewModelProvider
         argument: null,
         retry: null,
         name: r'cartViewModelProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -33,7 +33,7 @@ final class CartViewModelProvider
   CartViewModel create() => CartViewModel();
 }
 
-String _$cartViewModelHash() => r'3a4d14344573f5f765d440f23325b4bfe407707f';
+String _$cartViewModelHash() => r'6930cab1e8b1009a891aed51803f51c5c0b54c09';
 
 abstract class _$CartViewModel extends $AsyncNotifier<List<CartItem>> {
   FutureOr<List<CartItem>> build();

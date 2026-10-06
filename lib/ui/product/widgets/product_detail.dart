@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hoc_tren_truong/domain/models/product.dart';
 import 'package:hoc_tren_truong/utils/currency_formatter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hoc_tren_truong/ui/product/view_models/cart_view_model.dart';
 
-class ProductDetail extends StatelessWidget {
+class ProductDetail extends ConsumerWidget {
   final Product product;
 
   const ProductDetail({super.key, required this.product});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     String? imagePath = product.image;
 
     return ListView(
@@ -106,6 +108,51 @@ class ProductDetail extends StatelessWidget {
             fontSize: 16,
             color: Colors.black87,
             height: 1.5,
+          ),
+        ),
+
+        const SizedBox(height: 24),
+
+        ElevatedButton.icon(
+          onPressed: product.quantity < 1
+              ? null
+              : () async {
+            try {
+              await ref
+                  .read(cartViewModelProvider.notifier)
+                  .addProduct(product);
+
+              if (!context.mounted) return;
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Đã thêm 1 sản phẩm vào giỏ'),
+                ),
+              );
+            } catch (error) {
+              if (!context.mounted) return;
+
+              final message = error is StateError
+                  ? error.message
+                  : error.toString();
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(message)),
+              );
+            }
+          },
+          icon: const Icon(Icons.add_shopping_cart),
+          label: Text(
+            product.quantity < 1 ? 'Hết hàng' : 'Thêm vào giỏ hàng',
+          ),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            textStyle: const TextStyle(fontSize: 18),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
         ),
       ],
