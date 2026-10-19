@@ -1,5 +1,3 @@
-
-
 import 'dart:ui_web';
 
 class CartItem1 {
@@ -8,9 +6,18 @@ class CartItem1 {
     this.quantity = 1,
     this.isSelected = false,
   });
+
   final String product;
   final int quantity;
   final bool isSelected;
+
+  CartItem1 copyTo({int? quantity, bool? isSelected}) {
+    return CartItem1(
+      product: product,
+      quantity: quantity ?? this.quantity,
+      isSelected: isSelected ?? this.isSelected,
+    );
+  }
 
   CartItem1 copyWith({int? quantity, bool? isSelected}) => CartItem1(
     product: product,

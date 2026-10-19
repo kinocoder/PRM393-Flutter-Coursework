@@ -43,4 +43,20 @@ class DataHelper {
       isSelected: c['isSelected'] as bool
     )).toList();
   }
+  
+  //2.Thêm sản phẩm vào giỏ hàng
+  Future<void> addToCart(String proId,{int quantity = 1}) async{
+    var db = await DataHelper.instance.database;
+    var carts =await db.query('$cartTable',where: 'proId',whereArgs: [proId]);
+    var cart = carts==null?null : carts.first;
+
+    if(cart!=null){
+      //update quantity
+      cart!['quantity'] = int.parse(cart['quantity'] as String ) + 1;
+      db.update('$cartTable', cart);
+    }else{
+      //add
+      db.insert('$cartTable', cart!);
+    }
+  }
 }
