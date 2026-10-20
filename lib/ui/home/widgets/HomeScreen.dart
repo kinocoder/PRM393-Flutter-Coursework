@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hoc_tren_truong/ui/api_photo/widgets/photos_view.dart';
 import 'package:hoc_tren_truong/ui/product/widgets/product_detail.dart';
 import 'package:hoc_tren_truong/ui/product/widgets/products_view.dart';
+
 import '../../../domain/models/product.dart';
+
 import 'package:hoc_tren_truong/ui/product/widgets/cart_view.dart';
 
 /// Composition/navigation boundary. Domain actions stay inside feature ViewModels.
@@ -14,13 +17,11 @@ class HomeScreen extends StatefulWidget {
 
 class _ShopPageState extends State<HomeScreen> {
   int selectedIndex = 0;
-  final titles = ['Products', 'Product Detail', 'Cart'];
+  final titles = ['Products', 'Product Detail', 'Cart', 'Photos'];
   Product? selectedProduct;
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text(titles[selectedIndex]),
@@ -30,19 +31,27 @@ class _ShopPageState extends State<HomeScreen> {
       ),
       body: switch (selectedIndex) {
         0 => ProductsView(
-          onProductSelected: (product){
+          onProductSelected: (product) {
             setState(() {
               selectedProduct = product;
               selectedIndex = 1;
             });
           },
         ),
-        1 => selectedProduct == null ? Center(
-          child: Text("Hãy chọn 1 sản phẩm ở danh sách",style: TextStyle(fontSize: 25),),
-        ) : ProductDetail(product: selectedProduct!),
-        _ => const CartView(),
+        1 =>
+          selectedProduct == null
+              ? Center(
+                  child: Text(
+                    "Hãy chọn 1 sản phẩm ở danh sách",
+                    style: TextStyle(fontSize: 25),
+                  ),
+                )
+              : ProductDetail(product: selectedProduct!),
+        2 => const CartView(),
+        _ => const PhotoView(),
       },
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: selectedIndex,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
@@ -63,6 +72,10 @@ class _ShopPageState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart, size: 40),
             label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.photo_library_outlined, size: 40),
+            label: 'Photos',
           ),
         ],
       ),

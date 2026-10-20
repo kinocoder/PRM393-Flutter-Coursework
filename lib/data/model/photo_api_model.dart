@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class PhotoApiModel {
   final int photoId;
   final String title;
@@ -21,5 +19,4 @@ class PhotoApiModel {
       thumbnailUrl: json['thumbnailUrl'] as String,
     );
   }
-
 }
