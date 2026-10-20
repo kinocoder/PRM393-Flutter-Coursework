@@ -4,13 +4,13 @@ class PhotoApiModel {
   final int photoId;
   final String title;
   final String url;
-  final String thumnailUrl;
+  final String thumbnailUrl;
 
   PhotoApiModel({
     required this.photoId,
     required this.title,
     required this.url,
-    required this.thumnailUrl,
+    required this.thumbnailUrl,
   });
 
   factory PhotoApiModel.fromJson(Map<String, dynamic> json) {
@@ -18,7 +18,7 @@ class PhotoApiModel {
       photoId: json['id'] as int,
       title: json['title'] as String,
       url: json['url'] as String,
-      thumnailUrl: json['thumbnailUrl'] as String,
+      thumbnailUrl: json['thumbnailUrl'] as String,
     );
   }
 
