@@ -55,4 +55,4 @@ final class Settingrepository1Provider
 }
 
 String _$settingrepository1Hash() =>
-    r'131c3547a2c5993d64a24717f48645ce0f72eab3';
+    r'1018584909ecff37deac36b8ae87c94cf12937e4';
