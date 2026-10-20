@@ -15,10 +15,10 @@ class PhotoApiModel {
 
   factory PhotoApiModel.fromJson(Map<String, dynamic> json) {
     return PhotoApiModel(
-      photoId: json['id'] as String? ?? '',
-      title: json['title'] as String? ?? '',
-      url: json['url'] as String? ?? '',
-      thumnailUrl: json['thumbnailUrl'] as String? ?? '',
+      photoId: json['id'] as String,
+      title: json['title'] as String,
+      url: json['url'] as String,
+      thumnailUrl: json['thumbnailUrl'] as String,
     );
   }
 
