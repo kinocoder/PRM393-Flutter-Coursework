@@ -22,7 +22,7 @@ class FavoriteLocalService {
     final db = await _appDatabase.database;
 
     return db.insert(
-      'favorite_photo',
+      'favorite_photos',
       photo.toMap(),
       conflictAlgorithm: ConflictAlgorithm.ignore,
     );
@@ -32,7 +32,7 @@ class FavoriteLocalService {
   Future<List<PhotoApiModel>> getPhotos() async {
     final db = await _appDatabase.database;
 
-    final List<Map<String, Object?>> maps = await db.query('favorite_photo');
+    final List<Map<String, Object?>> maps = await db.query('favorite_photos');
 
     return maps.map((map) {
       return PhotoApiModel.fromMap(map);
@@ -43,7 +43,7 @@ class FavoriteLocalService {
   Future<bool> isFavoritePhoto(int photoId) async{
     final db = await _appDatabase.database;
     final maps = await db.query(
-      'favorite_photo',
+      'favorite_photos',
       columns: ['photo_id'],
       where: 'photo_id = ?',
       whereArgs: [photoId],
@@ -58,7 +58,7 @@ class FavoriteLocalService {
     final db = await _appDatabase.database;
 
     return db.delete(
-      'favorite_photo',
+      'favorite_photos',
       where: 'photo_id = ?',
       whereArgs: [photoId],
     );

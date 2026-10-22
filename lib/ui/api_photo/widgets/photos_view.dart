@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../view_models/photo_view_model.dart';
-import '../widgets/photo_card.dart';
+import '../../core/ui/photo_card.dart';
 
 class PhotoView extends ConsumerWidget {
   const PhotoView({super.key});

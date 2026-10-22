@@ -7,6 +7,8 @@ import '../../../domain/models/product.dart';
 
 import 'package:hoc_tren_truong/ui/product/widgets/cart_view.dart';
 
+import '../../favorite_photo/widgets/favorite_photo_screen.dart';
+
 /// Composition/navigation boundary. Domain actions stay inside feature ViewModels.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 
 class _ShopPageState extends State<HomeScreen> {
   int selectedIndex = 0;
-  final titles = ['Products', 'Product Detail', 'Cart', 'Photos'];
+  final titles = ['Products', 'Product Detail', 'Cart', 'Photos','WishList'];
   Product? selectedProduct;
 
   @override
@@ -48,7 +50,8 @@ class _ShopPageState extends State<HomeScreen> {
                 )
               : ProductDetail(product: selectedProduct!),
         2 => const CartView(),
-        _ => const PhotoView(),
+        3 => const PhotoView(),
+        _ => const FavoritePhotoView(),
       },
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -75,6 +78,10 @@ class _ShopPageState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.photo_library_outlined, size: 40),
+            label: 'Photos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite, size: 40),
             label: 'Photos',
           ),
         ],
