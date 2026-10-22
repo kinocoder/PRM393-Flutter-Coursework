@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:hoc_tren_truong/ui/favorite_photo/view_models/favorite_photo_view_model.dart';
+
 import '../../core/ui/photo_card.dart';
 
 class FavoritePhotoView extends ConsumerWidget {
@@ -26,7 +27,16 @@ class FavoritePhotoView extends ConsumerWidget {
             itemBuilder: (contex, index) {
               final photo = photos[index];
 
-              return PhotoCard(key: ValueKey(photo.photoId), photo: photo);
+              return PhotoCard(
+                key: ValueKey(photo.photoId),
+                photo: photo,
+                isFavorite: true,
+                onFavoritePress: () {
+                  ref
+                      .read(favoritePhotoViewModelProvider.notifier)
+                      .deleteFavoritePhoto(photo.photoId);
+                },
+              );
             },
           );
         },

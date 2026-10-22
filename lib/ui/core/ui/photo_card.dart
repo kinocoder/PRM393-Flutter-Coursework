@@ -3,10 +3,14 @@ import 'package:hoc_tren_truong/data/model/photo_api_model.dart';
 
 class PhotoCard extends StatelessWidget {
   final PhotoApiModel photo;
+  final bool isFavorite;
+  final VoidCallback onFavoritePress;
 
   const PhotoCard({
     super.key,
     required this.photo,
+    required this.isFavorite,
+    required this.onFavoritePress
   });
 
   @override
@@ -28,6 +32,10 @@ class PhotoCard extends StatelessWidget {
         ),
         title: Text(photo.title),
         subtitle: Text('Photo ID: ${photo.photoId}'),
+        trailing: IconButton(
+          icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border,color: Colors.amberAccent,),
+          onPressed: onFavoritePress,
+        ),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hoc_tren_truong/ui/product/view_models/product_view_model.dart';
-import 'package:hoc_tren_truong/ui/product/widgets/product_detail.dart';
 
 import '../../../domain/models/product.dart';
 import 'product_card.dart';

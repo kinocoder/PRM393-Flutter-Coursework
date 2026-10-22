@@ -25,7 +25,7 @@ class PhotoApiModel {
       photoId: map['photo_id'] as int,
       title: map['title'] as String,
       url: map['url'] as String,
-      thumbnailUrl: ['thumbnail_url'] as String
+      thumbnailUrl: map['thumbnail_url'] as String
     );
   }
 

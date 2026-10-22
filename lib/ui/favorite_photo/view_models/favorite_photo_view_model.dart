@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/model/photo_api_model.dart';
