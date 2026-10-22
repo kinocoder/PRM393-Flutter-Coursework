@@ -19,4 +19,15 @@ class PhotoApiModel {
       thumbnailUrl: json['thumbnailUrl'] as String,
     );
   }
+
+  Map<String, Object> toMap(){
+    return {
+      'photoId' : photoId,
+      'title' : title,
+      'url' : url,
+      'thumbnailUrl' : thumbnailUrl
+    };
+  }
+
+
 }

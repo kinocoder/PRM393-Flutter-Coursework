@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679334883608",
+    "project_id": "hoctrenlop-66227",
+    "storage_bucket": "hoctrenlop-66227.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679334883608:android:5286ac23a1ab73c42dae6d",
+        "android_client_info": {
+          "package_name": "com.example.hoc_tren_truong"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRNKZr5RlBQxonfo5pvqekFfDeDKuIaYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

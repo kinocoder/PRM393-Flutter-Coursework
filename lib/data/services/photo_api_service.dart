@@ -5,7 +5,7 @@ import 'package:hoc_tren_truong/data/model/photo_api_model.dart';
 
 Future<List<PhotoApiModel>> fetchPhotos() async {
   final response = await http.get(
-    Uri.parse('https://jsonplaceholder.typicode.com/photos?_limit=10'),
+    Uri.parse('https://jsonplaceholder.typicode.com/photos'),
     headers: {'Accept': 'application/json'},
   );
 
