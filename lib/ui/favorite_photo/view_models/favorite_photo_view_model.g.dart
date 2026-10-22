@@ -35,7 +35,7 @@ final class FavoritePhotoViewModelProvider
 }
 
 String _$favoritePhotoViewModelHash() =>
-    r'db2050bca3995ad3b842c63b41accd7fe450cd58';
+    r'c35c95fa939e7543310ec9e625e11d15af5b07d3';
 
 abstract class _$FavoritePhotoViewModel
     extends $AsyncNotifier<List<PhotoApiModel>> {

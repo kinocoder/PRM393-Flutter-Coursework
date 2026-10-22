@@ -7,7 +7,10 @@ import '../../../domain/models/product.dart';
 
 import 'package:hoc_tren_truong/ui/product/widgets/cart_view.dart';
 
+import '../../core/theme/widgets/theme_settings.dart';
 import '../../favorite_photo/widgets/favorite_photo_screen.dart';
+
+import 'package:hoc_tren_truong/ui/core/theme/view_models/theme_view_model.dart';
 
 /// Composition/navigation boundary. Domain actions stay inside feature ViewModels.
 class HomeScreen extends StatefulWidget {
@@ -30,6 +33,9 @@ class _ShopPageState extends State<HomeScreen> {
         centerTitle: true,
         foregroundColor: Colors.white,
         backgroundColor: Colors.blue,
+        actions: const [
+          ThemeSettings(),
+        ],
       ),
       body: switch (selectedIndex) {
         0 => ProductsView(
